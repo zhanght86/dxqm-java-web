@@ -1,0 +1,71 @@
+spring:
+  #环境 dev|test|pro|preview
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+      enabled: true
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+    time-zone: GMT+8
+  main:
+    allow-bean-definition-overriding: true
+config:
+  WebAnnexFilePath: WebAnnexFile
+  DataBackupFilePath: DataBackupFile
+  TemporaryFilePath: TemporaryFile
+  SystemFilePath: SystemFile
+  TemplateFilePath: TemplateFile
+  EmailFilePath: EmailFile
+  DocumentFilePath: DocumentFile
+  DocumentPreviewPath: DocumentPreview
+  UserAvatarFilePath: UserAvatar
+  IMContentFilePath: IMContentFile
+  MPMaterialFilePath: MPMaterial
+  TemplateCodePath: TemplateCode
+  BiVisualPath: BiVisualPath
+  MPUploadFileType: bmp,png,jpeg,jpg,gif,mp3,wma,wav,amr,mp4
+  WeChatUploadFileType: jpg,png,doc,docx,ppt,pptx,xls,xlsx,pdf,txt,rar,zip,csv,amr,mp4
+  AllowUploadImageType: jpg,gif,png,bmp,jpeg,tiff,psd,swf,svg,pcx,dxf,wmf,emf,lic,eps,tga
+  AllowUploadFileType: jpg,gif,png,bmp,jpeg,doc,docx,ppt,pptx,xls,xlsx,pdf,txt,rar,zip,csv
+  #代码生成器模块命名
+  CodeAreasName: example
+
+  #===============系统错误邮件报告反馈相关==================
+  SoftName: jnpf-java-boot
+  SoftFullName: JNPF软件开发平台
+  AppVersion: V3.2.4
+  AppUpdateContent: ;
+  # 当前域名配置(文档预览中使用)
+  Domain: http://localhost:30000
+  #=====================================
+  RecordLog: true
+  ErrorReport: false
+  ErrorReportTo: surrpot@yinmaisoft.com
+  #多租户是否开启
+  MultiTenancy: false
+  MultiTenancyUrl: http://127.0.0.1:30006/api/tenant/DbName/
+  IgexinEnabled: true
+  IgexinAppid: HLFY9T2d1z7MySY8hwGwh4
+  IgexinAppkey: 6Uiduugq648YDChhCjAt59
+  IgexinMastersecret: pEyQm156SJ9iS7PbyjLCZ6
+  SoftVersion: V3.2.4
+  #===============跨域配置==================
+  Origins: http://127.0.0.1,http://192.168.0.16:90
+  Methods: GET,HEAD,POST,PUT,DELETE,OPTIONS
+
+  #============yozo===========
+# 永中office在线预览配置
+  YozoDomain: //dcsapi.com/
+  YozoDomainKey: 57462250284462899305150
+  YozoCloudDomain: //dmc.yozocloud.cn
+  YozoAppId: yozoAgR41jgC0062
+  YozoAppKey: fc3134a9ba8bc6f4c69d635f9adf
+  YozoEditDomain: //eic.yozocloud.cn

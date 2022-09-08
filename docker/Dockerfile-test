@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1
+
+FROM java:8
+VOLUME /tmp/jnpf-boot
+ADD jnpf-admin-3.2.5-RELEASE.jar jnpf-boot.jar
+EXPOSE 30000
+ENTRYPOINT ["java","-jar", "-Dspring.profiles.active=test", "/jnpf-boot.jar"]
+
+#-Dspring.profiles.active=test  指定环境变量test
+#-D****  这个参数可以设定配置文件。使用外部参数改变内部参数。

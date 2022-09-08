@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jnpf.message.mapper.ImReplyMapper">
+    <resultMap id="imReplyList" type="jnpf.message.model.ImReplyListModel">
+        <id column="F_ReceiveUserId" property="id"/>
+		<result column="F_UserId" property="userId"/>
+        <result column="F_HeadIcon" property="headIcon"/>
+        <result column="F_ReceiveTime" property="latestDate"/>
+        <result column="F_ContentType" property="messageType"/>
+        <result column="F_Content" property="latestMessage"/>
+    </resultMap>
+
+    <select id="getImReplyList" resultMap="imReplyList" parameterType="jnpf.message.model.ImReplyListVo">
+        SELECT
+        	ir.F_UserId,
+			ir.F_ReceiveUserId,
+			bu.F_HeadIcon,
+			ir.F_ReceiveTime,
+			ic.F_ContentType,
+			ic.F_Content
+		FROM
+			base_imreply ir
+			LEFT JOIN base_user bu ON ir.F_userId = bu.F_Id
+			LEFT JOIN base_imcontent ic ON ic.F_SendUserId = bu.F_Id
+			AND ir.F_UserId = ic.F_SendUserId
+			AND ir.F_ReceiveUserId = ic.F_ReceiveUserId
+			AND ir.F_ReceiveTime = ic.F_SendTime
+    </select>
+</mapper>

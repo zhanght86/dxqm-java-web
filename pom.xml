@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jnpf</groupId>
+    <artifactId>jnpf-java-boot</artifactId>
+    <packaging>pom</packaging>
+    <version>${jnpf.version}</version>
+
+    <modules>
+        <module>jnpf-admin</module>
+        <module>jnpf-oauth</module>
+        <module>jnpf-system</module>
+        <module>jnpf-common</module>
+        <module>jnpf-example</module>
+        <module>jnpf-extend</module>
+        <module>jnpf-visualdev</module>
+        <module>jnpf-workflow</module>
+        <module>jnpf-file</module>
+        <module>jnpf-exception</module>
+        <module>jnpf-visualdata</module>
+        <module>jnpf-app</module>
+    </modules>
+
+    <properties>
+        <jna.version>5.5.0</jna.version>
+        <jnpf.version>3.2.5-RELEASE</jnpf.version>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- spring依赖 -->
+        <spring-boot-admin.version>2.3.0</spring-boot-admin.version>
+        <spring-boot.version>2.3.10.RELEASE</spring-boot.version>
+        <!-- swagger -->
+        <swagger.version>3.0.0</swagger.version>
+        <swagger-model.version>1.5.22</swagger-model.version>
+        <swagger-ui.version>1.9.5</swagger-ui.version>
+        <!-- 数据库配置 -->
+        <druid.version>1.1.21</druid.version>
+        <mybatis-plus.vesion>3.4.0</mybatis-plus.vesion>
+        <mybatis-plus.generator.vesion>3.4.0</mybatis-plus.generator.vesion>
+        <mybatis-plus-extension.vesion>3.4.0</mybatis-plus-extension.vesion>
+        <mybatis-plus-core.vesion>3.4.0</mybatis-plus-core.vesion>
+        <mysql.version>8.0.11</mysql.version>
+        <dm18.version>1.8.0</dm18.version>
+        <!-- 其他 -->
+        <commons-io.version>2.5</commons-io.version>
+        <commons-lang.version>2.5</commons-lang.version>
+        <weixin.version>3.3.0</weixin.version>
+        <thumbnailator.version>0.4.8</thumbnailator.version>
+        <pinyin4j.version>2.5.0</pinyin4j.version>
+        <zxing.version>3.3.0</zxing.version>
+        <poi.version>4.1.2</poi.version>
+        <fastjson.version>1.2.76</fastjson.version>
+        <common-lang3.version>3.7</common-lang3.version>
+        <common-pool.version>2.6.2</common-pool.version>
+        <thumbnailator.version>0.4.8</thumbnailator.version>
+        <validation.vsersion>2.0.1.Final</validation.vsersion>
+        <hibernate-validator.vsersion>6.0.7.Final</hibernate-validator.vsersion>
+        <sqlserver.version>4.0</sqlserver.version>
+        <oracle.version>11.2.0</oracle.version>
+        <poi.version>4.0.0</poi.version>
+        <jackson.version>2.12.0</jackson.version>
+        <itextpdf.version>5.5.6</itextpdf.version>
+        <itext-asian.version>5.2.0</itext-asian.version>
+        <velocity.version>2.0</velocity.version>
+        <oshi-core.version>5.2.4</oshi-core.version>
+        <hutool-all.version>5.4.7</hutool-all.version>
+        <jwt.version>3.4.0</jwt.version>
+        <guava.version>21.0</guava.version>
+        <nimbus-jose-jwt.version>8.16</nimbus-jose-jwt.version>
+        <spring-security-oauth2.version>2.3.8.RELEASE</spring-security-oauth2.version>
+        <tencentcloud-sdk-java>3.1.278</tencentcloud-sdk-java>
+        <aliyun-java-sdk-dysmsapi>2.1.0</aliyun-java-sdk-dysmsapi>
+        <aliyun-java-sdk-core>4.5.20</aliyun-java-sdk-core>
+        <taobao-sdk-java>1.0</taobao-sdk-java>
+        <minio.version>8.1.0</minio.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- SpringBoot 依赖配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Swagger 依赖配置 -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>swagger-bootstrap-ui</artifactId>
+                <version>${swagger-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.plugin</groupId>
+                <artifactId>spring-plugin-core</artifactId>
+                <version>2.0.0.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-model.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger-model.version}</version>
+            </dependency>
+            <!-- druid -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <!-- mybatisplus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.vesion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus-extension.vesion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>${mybatis-plus-core.vesion}</version>
+            </dependency>
+            <!-- 代码生成 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.generator.vesion}</version>
+            </dependency>
+
+            <!-- mysql -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!--sqlserver-->
+            <dependency>
+                <groupId>com.sqlserver</groupId>
+                <artifactId>sqljdbc4</artifactId>
+                <version>${sqlserver.version}</version>
+            </dependency>
+
+            <!-- oracle -->
+            <dependency>
+                <groupId>com.oracle</groupId>
+                <artifactId>ojdbc6</artifactId>
+                <version>${oracle.version}</version>
+            </dependency>
+            <!-- dm -->
+            <dependency>
+                <groupId>com.dm</groupId>
+                <artifactId>DmJdbcDriver18</artifactId>
+                <version>${dm18.version}</version>
+            </dependency>
+
+            <!-- 微信 -->
+            <dependency>
+                <groupId>com.github.binarywang</groupId>
+                <artifactId>weixin-java-miniapp</artifactId>
+                <version>${weixin.version}</version>
+            </dependency>
+
+            <!-- excel工具 -->
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <!-- JSON 解析器和生成器 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${common-lang3.version}</version>
+            </dependency>
+
+            <!-- 公共资源池 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${common-pool.version}</version>
+            </dependency>
+
+            <!--二维码-->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.version}</version>
+            </dependency>
+
+            <!-- 拼音 -->
+            <dependency>
+                <groupId>com.belerweb</groupId>
+                <artifactId>pinyin4j</artifactId>
+                <version>${pinyin4j.version}</version>
+            </dependency>
+            <!-- 缩略图 -->
+            <dependency>
+                <groupId>net.coobird</groupId>
+                <artifactId>thumbnailator</artifactId>
+                <version>${thumbnailator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.afterturn</groupId>
+                <artifactId>easypoi-base</artifactId>
+                <version>${poi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jaxb-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <!-- PDF -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>itextpdf</artifactId>
+                <version>${itextpdf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>itext-asian</artifactId>
+                <version>${itext-asian.version}</version>
+            </dependency>
+            <!-- PDF end-->
+            <dependency>
+                <groupId>org.apache.velocity</groupId>
+                <artifactId>velocity-engine-core</artifactId>
+                <version>${velocity.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>${oshi-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-all.version}</version>
+            </dependency>
+            <!--oauth2依赖-->
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${spring-security-oauth2.version}</version>
+            </dependency>
+            <!-- jwt -->
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>${nimbus-jose-jwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna-platform</artifactId>
+                <version>${jna.version}</version>
+            </dependency>
+
+            <!-- 消息 -->
+            <dependency>
+                <groupId>com.tencentcloudapi</groupId>
+                <artifactId>tencentcloud-sdk-java</artifactId>
+                <version>${tencentcloud-sdk-java}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+                <version>${aliyun-java-sdk-dysmsapi}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>aliyun-java-sdk-core</artifactId>
+                <version>${aliyun-java-sdk-core}</version>
+            </dependency>
+            <!-- 钉钉API的Jar -->
+            <dependency>
+                <groupId>dingtalk-sdk-java</groupId>
+                <artifactId>taobao-sdk-java</artifactId>
+                <version>${taobao-sdk-java}</version>
+            </dependency>
+            <dependency>
+                <groupId>dingtalk-sdk-java</groupId>
+                <artifactId>taobao-sdk-java-source</artifactId>
+                <version>${taobao-sdk-java}</version>
+            </dependency>
+
+            <!--monio-->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>${commons-fileupload.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
